@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['"DM Sans"', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -47,6 +50,13 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        "cat-pdf": "hsl(var(--cat-pdf))",
+        "cat-image": "hsl(var(--cat-image))",
+        "cat-video": "hsl(var(--cat-video))",
+        "cat-write": "hsl(var(--cat-write))",
+        "cat-file": "hsl(var(--cat-file))",
+        "stats-bg": "hsl(var(--stats-bg))",
+        "tools-bg": "hsl(var(--tools-bg))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
