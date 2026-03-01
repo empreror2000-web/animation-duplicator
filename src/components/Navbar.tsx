@@ -1,25 +1,27 @@
 import { useState } from "react";
-import { Search, FileText, Image, PenTool, Video, FolderOpen, Menu, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Search, FileText, Image, PenTool, Video, FolderOpen, Menu, X, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
-  { label: "PDF", icon: FileText },
-  { label: "Image", icon: Image },
-  { label: "Write", icon: PenTool },
-  { label: "Video", icon: Video },
-  { label: "File", icon: FolderOpen },
+  { label: "PDF", icon: FileText, path: "/tools/pdf" },
+  { label: "Image", icon: Image, path: "/tools/image" },
+  { label: "Write", icon: PenTool, path: "/tools/write" },
+  { label: "Video", icon: Video, path: "/tools/video" },
+  { label: "File", icon: FolderOpen, path: "/tools/file" },
 ];
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <button onClick={() => navigate("/")} className="flex items-center gap-2">
             <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-lg">T</span>
             </div>
@@ -27,13 +29,14 @@ const Navbar = () => {
               <span className="font-bold text-lg text-foreground">TinyWow</span>
               <span className="block text-[10px] text-muted-foreground -mt-1">by Jenni</span>
             </div>
-          </div>
+          </button>
 
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
               <button
                 key={item.label}
+                onClick={() => navigate(item.path)}
                 className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg hover:bg-accent transition-colors"
               >
                 <item.icon className="w-4 h-4" />
@@ -50,8 +53,9 @@ const Navbar = () => {
             >
               <Search className="w-5 h-5" />
             </button>
-            <Button size="sm" className="hidden sm:inline-flex">
-              Sign In
+            <Button size="sm" className="hidden sm:inline-flex" onClick={() => navigate("/donation")}>
+              <Heart className="w-4 h-4 mr-1.5" />
+              Donation
             </Button>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -85,12 +89,20 @@ const Navbar = () => {
             {navItems.map((item) => (
               <button
                 key={item.label}
+                onClick={() => { navigate(item.path); setMobileOpen(false); }}
                 className="w-full flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg hover:bg-accent transition-colors"
               >
                 <item.icon className="w-4 h-4" />
                 {item.label}
               </button>
             ))}
+            <button
+              onClick={() => { navigate("/donation"); setMobileOpen(false); }}
+              className="w-full flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-cat-pdf hover:bg-accent rounded-lg transition-colors"
+            >
+              <Heart className="w-4 h-4" />
+              Donation
+            </button>
           </div>
         </div>
       )}

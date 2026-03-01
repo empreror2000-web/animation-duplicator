@@ -1,35 +1,36 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 const tabs = ["All Tools", "PDF Tools", "Video Tools", "Image Tools", "Converter", "AI Write"];
 
-type Tool = { name: string; category: string; description: string };
+type Tool = { name: string; category: string; description: string; path: string };
 
 const allTools: Tool[] = [
-  { name: "Content Improver", category: "AI Write", description: "Improve your content" },
-  { name: "Essay Writer", category: "AI Write", description: "Easily create an essay with AI" },
-  { name: "Paragraph Writer", category: "AI Write", description: "AI Paragraph Writer" },
-  { name: "AI Image Generator", category: "Image Tools", description: "Generate images with AI" },
-  { name: "Remove Background", category: "Image Tools", description: "Remove the background from an image" },
-  { name: "Merge PDF", category: "PDF Tools", description: "Merge 2+ PDF files into one" },
-  { name: "Edit PDF", category: "PDF Tools", description: "Free PDF Editor" },
-  { name: "PDF to JPG", category: "PDF Tools", description: "Convert PDF pages to images" },
-  { name: "JPG to PDF", category: "PDF Tools", description: "Upload images, receive a PDF" },
-  { name: "Compress PDF", category: "PDF Tools", description: "Reduce PDF file size" },
-  { name: "Upscale Image", category: "Image Tools", description: "Increase image resolution" },
-  { name: "Compress Video", category: "Video Tools", description: "Reduce video file size" },
-  { name: "Video to GIF", category: "Video Tools", description: "Convert MP4 to animated GIF" },
-  { name: "Trim Video", category: "Video Tools", description: "Cut video start and end" },
-  { name: "MP4 to MP3", category: "Video Tools", description: "Extract audio from video" },
-  { name: "Excel to PDF", category: "Converter", description: "Convert Excel to PDF" },
-  { name: "CSV to Excel", category: "Converter", description: "Convert CSV to Excel" },
-  { name: "Split Excel", category: "Converter", description: "Split Excel into multiple files" },
-  { name: "Sentence Rewriter", category: "AI Write", description: "Rewrite sentences with AI" },
-  { name: "Compress Image", category: "Image Tools", description: "Compress your image size" },
-  { name: "Word to PDF", category: "PDF Tools", description: "Convert Word to PDF" },
-  { name: "PDF to Word", category: "PDF Tools", description: "Convert PDF to Word" },
-  { name: "Instagram Download", category: "Video Tools", description: "Download from Instagram" },
-  { name: "QR Code Generator", category: "Converter", description: "Generate QR codes" },
+  { name: "Content Improver", category: "AI Write", description: "Improve your content", path: "/tools/write" },
+  { name: "Essay Writer", category: "AI Write", description: "Easily create an essay with AI", path: "/tools/write" },
+  { name: "Paragraph Writer", category: "AI Write", description: "AI Paragraph Writer", path: "/tools/write" },
+  { name: "AI Image Generator", category: "Image Tools", description: "Generate images with AI", path: "/tools/image" },
+  { name: "Remove Background", category: "Image Tools", description: "Remove the background from an image", path: "/tools/image" },
+  { name: "Merge PDF", category: "PDF Tools", description: "Merge 2+ PDF files into one", path: "/tools/pdf" },
+  { name: "Edit PDF", category: "PDF Tools", description: "Free PDF Editor", path: "/tools/pdf" },
+  { name: "PDF to JPG", category: "PDF Tools", description: "Convert PDF pages to images", path: "/tools/pdf" },
+  { name: "JPG to PDF", category: "PDF Tools", description: "Upload images, receive a PDF", path: "/tools/pdf" },
+  { name: "Compress PDF", category: "PDF Tools", description: "Reduce PDF file size", path: "/tools/pdf" },
+  { name: "Upscale Image", category: "Image Tools", description: "Increase image resolution", path: "/tools/image" },
+  { name: "Compress Video", category: "Video Tools", description: "Reduce video file size", path: "/tools/video" },
+  { name: "Video to GIF", category: "Video Tools", description: "Convert MP4 to animated GIF", path: "/tools/video" },
+  { name: "Trim Video", category: "Video Tools", description: "Cut video start and end", path: "/tools/video" },
+  { name: "MP4 to MP3", category: "Video Tools", description: "Extract audio from video", path: "/tools/video" },
+  { name: "Excel to PDF", category: "Converter", description: "Convert Excel to PDF", path: "/tools/file" },
+  { name: "CSV to Excel", category: "Converter", description: "Convert CSV to Excel", path: "/tools/file" },
+  { name: "Split Excel", category: "Converter", description: "Split Excel into multiple files", path: "/tools/file" },
+  { name: "Sentence Rewriter", category: "AI Write", description: "Rewrite sentences with AI", path: "/tools/write" },
+  { name: "Compress Image", category: "Image Tools", description: "Compress your image size", path: "/tools/image" },
+  { name: "Word to PDF", category: "PDF Tools", description: "Convert Word to PDF", path: "/tools/pdf" },
+  { name: "PDF to Word", category: "PDF Tools", description: "Convert PDF to Word", path: "/tools/pdf" },
+  { name: "Instagram Download", category: "Video Tools", description: "Download from Instagram", path: "/tools/video" },
+  { name: "QR Code Generator", category: "Converter", description: "Generate QR codes", path: "/tools/file" },
 ];
 
 const getCategoryColor = (cat: string) => {
@@ -45,6 +46,7 @@ const getCategoryColor = (cat: string) => {
 
 const PopularTools = () => {
   const [activeTab, setActiveTab] = useState("All Tools");
+  const navigate = useNavigate();
 
   const filtered = activeTab === "All Tools"
     ? allTools
@@ -60,7 +62,6 @@ const PopularTools = () => {
           We present the best of the best. All free, no catch
         </p>
 
-        {/* Tabs */}
         <div className="flex flex-wrap justify-center gap-2 mb-10">
           {tabs.map((tab) => (
             <button
@@ -77,11 +78,11 @@ const PopularTools = () => {
           ))}
         </div>
 
-        {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {filtered.map((tool, i) => (
             <div
               key={tool.name}
+              onClick={() => navigate(tool.path)}
               className="group bg-background rounded-xl p-4 border border-border hover:shadow-lg hover:border-primary/30 transition-all duration-200 cursor-pointer animate-fade-up opacity-0"
               style={{ animationDelay: `${i * 50}ms`, animationFillMode: "forwards" }}
             >
@@ -100,7 +101,10 @@ const PopularTools = () => {
         </div>
 
         <div className="text-center mt-10">
-          <button className="px-6 py-3 rounded-xl bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity">
+          <button
+            onClick={() => navigate("/tools/pdf")}
+            className="px-6 py-3 rounded-xl bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
+          >
             All Tools
           </button>
         </div>
