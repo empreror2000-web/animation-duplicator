@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { FileText, Image, Video, PenTool, FolderOpen, ArrowRight } from "lucide-react";
 
 const categories = [
@@ -8,6 +9,7 @@ const categories = [
     featured: "PDF Creator",
     icon: FileText,
     colorClass: "bg-cat-pdf",
+    path: "/tools/pdf",
   },
   {
     title: "Image Tools",
@@ -16,6 +18,7 @@ const categories = [
     featured: "Remove BG",
     icon: Image,
     colorClass: "bg-cat-image",
+    path: "/tools/image",
   },
   {
     title: "Video Tools",
@@ -24,6 +27,7 @@ const categories = [
     featured: "Mute Video",
     icon: Video,
     colorClass: "bg-cat-video",
+    path: "/tools/video",
   },
   {
     title: "AI Write",
@@ -32,6 +36,7 @@ const categories = [
     featured: "Paragraph Writer",
     icon: PenTool,
     colorClass: "bg-cat-write",
+    path: "/tools/write",
   },
   {
     title: "File Tools",
@@ -40,10 +45,13 @@ const categories = [
     featured: "Split Excel",
     icon: FolderOpen,
     colorClass: "bg-cat-file",
+    path: "/tools/file",
   },
 ];
 
 const CategoryCards = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="px-4 py-8">
       <div className="max-w-7xl mx-auto">
@@ -51,10 +59,10 @@ const CategoryCards = () => {
           {categories.map((cat, i) => (
             <div
               key={cat.title}
+              onClick={() => navigate(cat.path)}
               className={`${cat.colorClass} rounded-2xl p-5 text-primary-foreground cursor-pointer group hover:scale-[1.03] transition-transform duration-200 animate-fade-up opacity-0 relative overflow-hidden`}
               style={{ animationDelay: `${i * 100}ms`, animationFillMode: "forwards" }}
             >
-              {/* Badge */}
               <div className="flex items-center justify-between mb-3">
                 <div className="w-10 h-10 rounded-xl bg-primary-foreground/20 flex items-center justify-center">
                   <cat.icon className="w-5 h-5" />
@@ -69,7 +77,6 @@ const CategoryCards = () => {
 
               <ArrowRight className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
 
-              {/* Featured tool strip */}
               <div className="bg-background/90 rounded-lg px-3 py-2 flex items-center justify-between">
                 <span className="text-xs text-muted-foreground">Featured Tool :</span>
                 <span className="text-xs font-semibold text-foreground">{cat.featured}</span>
