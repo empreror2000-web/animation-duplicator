@@ -60,8 +60,8 @@ const CategoryCards = () => {
             <div
               key={cat.title}
               onClick={() => navigate(cat.path)}
-              className={`${cat.colorClass} rounded-2xl p-5 text-primary-foreground cursor-pointer group hover:scale-[1.03] transition-transform duration-200 animate-fade-up opacity-0 relative overflow-hidden`}
-              style={{ animationDelay: `${i * 100}ms`, animationFillMode: "forwards" }}
+              className={`${cat.colorClass} rounded-2xl p-5 text-primary-foreground cursor-pointer group hover:scale-[1.05] hover:-translate-y-2 transition-all duration-300 animate-fade-up opacity-0 relative overflow-hidden shadow-lg hover:shadow-2xl`}
+              style={{ animationDelay: `${i * 100}ms`, animationFillMode: "forwards", animation: `fade-up 0.6s ease-out ${i * 100}ms forwards, card-float 3s ease-in-out ${i * 200}ms infinite` }}
             >
               <div className="flex items-center justify-between mb-3">
                 <div className="w-10 h-10 rounded-xl bg-primary-foreground/20 flex items-center justify-center">
