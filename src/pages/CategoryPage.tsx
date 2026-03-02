@@ -30,14 +30,16 @@ const CategoryPage = ({ category }: CategoryPageProps) => {
             <div
               key={tool.slug}
               onClick={() => navigate(tool.route)}
-              className="group bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-primary/30 transition-all cursor-pointer animate-fade-up opacity-0"
+              className="group bg-card border border-border rounded-xl p-5 hover:shadow-lg hover:border-primary/30 transition-all cursor-pointer animate-fade-up opacity-0 flex flex-col"
               style={{ animationDelay: `${i * 60}ms`, animationFillMode: "forwards" }}
             >
-              <div className="flex items-start justify-between mb-2">
-                <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">{tool.name}</h3>
-                <ArrowRight className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity mt-1" />
+              <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors mb-2">{tool.name}</h3>
+              <p className="text-sm text-muted-foreground mb-3 flex-1">{tool.description}</p>
+              <div className="flex justify-end">
+                <span className="inline-flex items-center gap-1 text-xs font-medium px-3 py-1.5 rounded-lg bg-primary text-primary-foreground group-hover:bg-primary/90 transition-colors">
+                  Open Tool <ArrowRight className="w-3 h-3" />
+                </span>
               </div>
-              <p className="text-sm text-muted-foreground">{tool.description}</p>
             </div>
           ))}
         </div>
