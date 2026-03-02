@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const amounts = [5, 10, 25, 50, 100];
 
@@ -24,34 +26,20 @@ const DonationPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <div className="border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <button onClick={() => navigate("/")} className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">T</span>
-            </div>
-            <span className="font-bold text-lg text-foreground">TinyWow</span>
-          </button>
-          <Button variant="outline" onClick={() => navigate("/")}>
-            ← Back to Home
-          </Button>
-        </div>
-      </div>
+      <Navbar />
 
       <div className="max-w-2xl mx-auto px-4 py-16 text-center">
-        <div className="w-20 h-20 rounded-full bg-cat-pdf/10 flex items-center justify-center mx-auto mb-6 animate-fade-up">
-          <Heart className="w-10 h-10 text-cat-pdf" />
+        <div className="w-20 h-20 rounded-full bg-destructive/10 flex items-center justify-center mx-auto mb-6 animate-fade-up">
+          <Heart className="w-10 h-10 text-destructive" />
         </div>
 
         <h1 className="text-4xl font-bold text-foreground mb-3 animate-fade-up opacity-0" style={{ animationDelay: "100ms", animationFillMode: "forwards" }}>
-          Support TinyWow
+          Support WinoxTools
         </h1>
         <p className="text-lg text-muted-foreground mb-10 animate-fade-up opacity-0" style={{ animationDelay: "200ms", animationFillMode: "forwards" }}>
-          Help us keep all 200+ tools completely free for everyone
+          Help us keep all tools completely free for everyone
         </p>
 
-        {/* Benefits */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
           {[
             { icon: Coffee, text: "Keep Tools Free" },
@@ -69,7 +57,6 @@ const DonationPage = () => {
           ))}
         </div>
 
-        {/* Amount selection */}
         <div className="bg-card border border-border rounded-2xl p-6 mb-6 animate-fade-up opacity-0" style={{ animationDelay: "500ms", animationFillMode: "forwards" }}>
           <h3 className="font-semibold text-foreground mb-4">Choose an amount</h3>
           <div className="flex flex-wrap justify-center gap-3 mb-4">
@@ -109,6 +96,8 @@ const DonationPage = () => {
           All donations are processed securely. Thank you for your generosity! 💖
         </p>
       </div>
+
+      <Footer />
     </div>
   );
 };
