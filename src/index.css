@@ -79,6 +79,16 @@
     --border: 217 33% 17%;
     --input: 217 33% 17%;
     --ring: 213 27% 84%;
+
+    --cat-dev: 250 80% 70%;
+    --cat-student: 160 70% 55%;
+    --cat-business: 28 95% 65%;
+    --cat-prompt: 280 75% 70%;
+    --cat-pdf: 0 80% 65%;
+
+    --stats-bg: 222 47% 8%;
+    --tools-bg: 222 47% 7%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
