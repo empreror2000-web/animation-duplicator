@@ -36,12 +36,12 @@
 
     --radius: 0.75rem;
 
-    /* TinyWow category colors */
+    /* WinoxTools category colors */
+    --cat-dev: 250 80% 60%;
+    --cat-student: 160 70% 42%;
+    --cat-business: 28 95% 55%;
+    --cat-prompt: 280 75% 58%;
     --cat-pdf: 0 80% 58%;
-    --cat-image: 28 95% 55%;
-    --cat-video: 340 82% 58%;
-    --cat-write: 210 100% 52%;
-    --cat-file: 172 66% 40%;
 
     /* Stats section */
     --stats-bg: 210 40% 97%;

@@ -1,8 +1,8 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import FeaturedTools from "@/components/FeaturedTools";
 import CategoryCards from "@/components/CategoryCards";
-import StatsSection from "@/components/StatsSection";
-import PopularTools from "@/components/PopularTools";
+import AllToolsGrid from "@/components/AllToolsGrid";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -10,9 +10,9 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
+      <FeaturedTools />
       <CategoryCards />
-      <StatsSection />
-      <PopularTools />
+      <AllToolsGrid />
       <Footer />
     </div>
   );
