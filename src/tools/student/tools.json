@@ -1,0 +1,6 @@
+[
+  { "name": "GPA Calculator", "slug": "gpa-calculator", "description": "Calculate your GPA easily", "icon": "Calculator" },
+  { "name": "Final Grade Calculator", "slug": "final-grade-calculator", "description": "Find the grade you need on your final", "icon": "Target" },
+  { "name": "Percentage Calculator", "slug": "percentage-calculator", "description": "Calculate percentages instantly", "icon": "Percent" },
+  { "name": "Pomodoro Timer", "slug": "pomodoro-timer", "description": "Stay focused with timed study sessions", "icon": "Timer" }
+]

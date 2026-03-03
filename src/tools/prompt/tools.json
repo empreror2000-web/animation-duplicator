@@ -1,0 +1,6 @@
+[
+  { "name": "Prompt Generator", "slug": "prompt-generator", "description": "Generate AI prompts for any task", "icon": "Wand2" },
+  { "name": "Prompt Improver", "slug": "prompt-improver", "description": "Enhance & refine your prompts", "icon": "Sparkles" },
+  { "name": "Midjourney Prompt Builder", "slug": "midjourney-prompt-builder", "description": "Build optimized Midjourney prompts", "icon": "Image" },
+  { "name": "YouTube Script Prompt", "slug": "youtube-script-prompt", "description": "Generate YouTube script outlines", "icon": "Video" }
+]

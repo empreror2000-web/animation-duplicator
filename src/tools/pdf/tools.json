@@ -1,0 +1,6 @@
+[
+  { "name": "Image to PDF", "slug": "image-to-pdf", "description": "Convert images to PDF files", "icon": "ImagePlus" },
+  { "name": "PDF to Image", "slug": "pdf-to-image", "description": "Convert PDF pages to images", "icon": "FileImage" },
+  { "name": "Rotate PDF", "slug": "rotate-pdf", "description": "Rotate PDF pages easily", "icon": "RotateCw" },
+  { "name": "Split PDF", "slug": "split-pdf", "description": "Split PDF into multiple files", "icon": "Scissors" }
+]
