@@ -5,6 +5,14 @@ import { categories, getToolsByCategory, type ToolCategory } from "@/data/tools"
 const iconMap: Record<string, any> = { Code, GraduationCap, Briefcase, Sparkles, FileText };
 const categoryKeys: ToolCategory[] = ["dev", "student", "business", "prompt", "pdf"];
 
+const bgMap: Record<ToolCategory, string> = {
+  dev: "bg-cat-dev",
+  student: "bg-cat-student",
+  business: "bg-cat-business",
+  prompt: "bg-cat-prompt",
+  pdf: "bg-cat-pdf",
+};
+
 const CategoryCards = () => {
   const navigate = useNavigate();
 
@@ -23,8 +31,8 @@ const CategoryCards = () => {
               <div
                 key={key}
                 onClick={() => navigate(cat.route)}
-                className={`bg-${cat.color} rounded-2xl p-5 text-primary-foreground cursor-pointer group hover:scale-[1.05] hover:-translate-y-2 transition-all duration-300 animate-fade-up opacity-0 relative overflow-hidden shadow-lg hover:shadow-2xl`}
-                style={{ animationDelay: `${i * 100}ms`, animationFillMode: "forwards", animation: `fade-up 0.6s ease-out ${i * 100}ms forwards, card-float 3s ease-in-out ${i * 200}ms infinite` }}
+                className={`${bgMap[key]} rounded-2xl p-5 text-primary-foreground cursor-pointer group hover:scale-[1.05] hover:-translate-y-2 transition-all duration-300 relative overflow-hidden shadow-lg hover:shadow-2xl`}
+                style={{ animation: `fade-up 0.6s ease-out ${i * 100}ms forwards, card-float 3s ease-in-out ${i * 200}ms infinite` }}
               >
                 <div className="flex items-center justify-between mb-3">
                   <div className="w-10 h-10 rounded-xl bg-primary-foreground/20 flex items-center justify-center">
