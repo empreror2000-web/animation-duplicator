@@ -8,6 +8,8 @@ import Donation from "./pages/Donation";
 import CategoryPage from "./pages/CategoryPage";
 import SearchPage from "./pages/SearchPage";
 import ToolPage from "./pages/ToolPage";
+import ToolsCategory from "./pages/ToolsCategory";
+import ToolsPage from "./pages/ToolsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,6 +23,10 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/donation" element={<Donation />} />
+          {/* New /tools routes */}
+          <Route path="/tools/:category" element={<ToolsCategory />} />
+          <Route path="/tools/:category/:slug" element={<ToolsPage />} />
+          {/* Legacy category routes */}
           <Route path="/dev-tools" element={<CategoryPage category="dev" />} />
           <Route path="/student-tools" element={<CategoryPage category="student" />} />
           <Route path="/business-tools" element={<CategoryPage category="business" />} />

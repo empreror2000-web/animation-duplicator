@@ -1,0 +1,8 @@
+[
+  { "name": "JSON Formatter", "slug": "json-formatter", "description": "Format & beautify JSON data", "icon": "Braces" },
+  { "name": "Base64 Encoder", "slug": "base64-encoder", "description": "Encode & decode Base64 strings", "icon": "Lock" },
+  { "name": "UUID Generator", "slug": "uuid-generator", "description": "Generate unique UUIDs instantly", "icon": "Fingerprint" },
+  { "name": "Regex Tester", "slug": "regex-tester", "description": "Test & debug regular expressions", "icon": "Search" },
+  { "name": "Timestamp Converter", "slug": "timestamp-converter", "description": "Convert Unix timestamps to dates", "icon": "Clock" },
+  { "name": "Hash Generator", "slug": "hash-generator", "description": "Generate MD5, SHA-1, SHA-256 hashes", "icon": "Hash" }
+]

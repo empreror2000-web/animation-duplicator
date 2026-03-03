@@ -1,0 +1,6 @@
+[
+  { "name": "Invoice Generator", "slug": "invoice-generator", "description": "Create professional invoices", "icon": "Receipt" },
+  { "name": "Profit Margin Calculator", "slug": "profit-margin-calculator", "description": "Calculate profit margins quickly", "icon": "TrendingUp" },
+  { "name": "VAT Calculator", "slug": "vat-calculator", "description": "Calculate VAT & sales tax", "icon": "BadgePercent" },
+  { "name": "ROI Calculator", "slug": "roi-calculator", "description": "Calculate return on investment", "icon": "LineChart" }
+]
