@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Menu, X, Heart, ChevronDown, Code, GraduationCap, Briefcase, Sparkles, FileText, Moon, Sun, Share2 } from "lucide-react";
+import wxLogo from "@/assets/wx-logo.png";
 import { Button } from "@/components/ui/button";
 import { categories, getToolsByCategory, type ToolCategory } from "@/data/tools";
 import IconButton from "@/components/IconButton";
