@@ -47,7 +47,7 @@ const FeaturedTools = () => {
               <div
                 key={tool.slug}
                 onClick={() => navigate(tool.route)}
-                className="group bg-card rounded-xl p-5 border border-border hover:shadow-lg hover:border-primary/30 transition-all duration-200 cursor-pointer animate-fade-up opacity-0 flex flex-col"
+                className="group bg-card rounded-xl p-5 border border-border hover:shadow-xl hover:border-primary/30 hover:-translate-y-1 transition-all duration-200 cursor-pointer animate-fade-up opacity-0 flex flex-col"
                 style={{ animationDelay: `${i * 80}ms`, animationFillMode: "forwards" }}
               >
                 <div className="flex items-start gap-3 mb-3">

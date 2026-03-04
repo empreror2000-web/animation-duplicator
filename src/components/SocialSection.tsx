@@ -1,3 +1,5 @@
+import wxLogo from "@/assets/wx-logo.png";
+
 const socials = [
   {
     name: "Twitter / X",
@@ -49,23 +51,33 @@ const socials = [
 const SocialSection = () => {
   return (
     <section className="px-4 py-16">
-      <div className="max-w-4xl mx-auto">
-        <div className="relative bg-foreground/[0.03] dark:bg-white/[0.03] border border-border rounded-3xl p-10 sm:p-14 text-center overflow-hidden">
-          {/* Dotted pattern background */}
+      <div className="max-w-5xl mx-auto">
+        <div
+          className="relative rounded-3xl overflow-hidden px-6 py-16 sm:px-12 sm:py-20 text-center"
+          style={{ background: "linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%)" }}
+        >
+          {/* Dot pattern */}
           <div
-            className="absolute inset-0 opacity-[0.04]"
+            className="absolute inset-0 opacity-20"
             style={{
-              backgroundImage: "radial-gradient(circle, currentColor 1px, transparent 1px)",
-              backgroundSize: "20px 20px",
+              backgroundImage:
+                "radial-gradient(circle, rgba(59,130,246,0.5) 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
             }}
           />
 
           <div className="relative z-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
-              Follow Us on Social Media
+            {/* Logo */}
+            <div className="flex justify-center mb-6">
+              <img src={wxLogo} alt="WinoxTools" className="h-16 w-auto" />
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              WinoxTools
             </h2>
-            <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-              Stay updated with new tools, tips, and announcements. Join our growing community!
+            <p className="text-gray-400 max-w-xl mx-auto mb-10 text-base sm:text-lg leading-relaxed">
+              From simple utilities to advanced tools, WinoxTools provides
+              everything you need in one platform. Fast, secure and 100% online.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
@@ -77,10 +89,10 @@ const SocialSection = () => {
                   rel="noopener noreferrer"
                   className="group flex flex-col items-center gap-2"
                 >
-                  <span className="w-14 h-14 rounded-2xl border border-border bg-card text-foreground flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all duration-200 shadow-sm group-hover:shadow-md group-hover:-translate-y-1">
+                  <span className="w-14 h-14 rounded-xl border border-white/10 bg-white/5 text-gray-300 flex items-center justify-center transition-all duration-200 group-hover:bg-white/15 group-hover:border-blue-500/50 group-hover:text-white group-hover:shadow-[0_0_20px_rgba(59,130,246,0.25)] group-hover:-translate-y-1">
                     {s.icon}
                   </span>
-                  <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+                  <span className="text-xs font-medium text-gray-500 group-hover:text-gray-300 transition-colors">
                     {s.name}
                   </span>
                 </a>

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Menu, X, Heart, ChevronDown, Code, GraduationCap, Briefcase, Sparkles, FileText, Moon, Sun, Share2 } from "lucide-react";
+import wxLogo from "@/assets/wx-logo.png";
 import { Button } from "@/components/ui/button";
 import { categories, getToolsByCategory, type ToolCategory } from "@/data/tools";
 import IconButton from "@/components/IconButton";
@@ -46,9 +47,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <button onClick={() => navigate("/")} className="flex items-center gap-2 flex-shrink-0">
-              <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">W</span>
-              </div>
+              <img src={wxLogo} alt="WinoxTools" className="h-9 w-auto" />
               <span className="font-bold text-lg text-foreground">WinoxTools</span>
             </button>
 
