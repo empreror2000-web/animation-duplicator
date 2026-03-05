@@ -8,7 +8,7 @@ import SEOSection from "@/components/SEOSection";
 import FAQSection from "@/components/FAQSection";
 import BlogSection from "@/components/BlogSection";
 import DonationSection from "@/components/DonationSection";
-import SocialSection from "@/components/SocialSection";
+
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -25,7 +25,7 @@ const Index = () => {
       <FAQSection />
       <BlogSection />
       <DonationSection />
-      <SocialSection />
+      
       <Footer />
       <ScrollToTop />
     </div>
