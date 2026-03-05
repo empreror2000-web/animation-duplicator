@@ -10,6 +10,8 @@ import SearchPage from "./pages/SearchPage";
 import ToolPage from "./pages/ToolPage";
 import ToolsCategory from "./pages/ToolsCategory";
 import ToolsPage from "./pages/ToolsPage";
+import BlogPage from "./pages/BlogPage";
+import BlogPostPage from "./pages/BlogPostPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +25,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/donation" element={<Donation />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
           {/* New /tools routes */}
           <Route path="/tools/:category" element={<ToolsCategory />} />
           <Route path="/tools/:category/:slug" element={<ToolsPage />} />

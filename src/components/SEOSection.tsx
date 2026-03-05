@@ -1,67 +1,100 @@
+import { Cpu, ShieldCheck, Monitor, Zap, Info } from "lucide-react";
+
+const sections = [
+  {
+    icon: Cpu,
+    title: "Advanced Tool Capabilities",
+    color: "border-l-primary",
+    bullets: [
+      "Developer tools: JSON formatter, Base64 encoder, UUID generator, regex tester, hash generator, and more.",
+      "Student tools: GPA calculator, final grade calculator, percentage calculator, Pomodoro timer.",
+      "Business tools: Invoice generator, profit margin calculator, VAT calculator, ROI calculator.",
+      "Prompt & PDF tools: AI prompt builder, ChatGPT optimizer, image-to-PDF converter, PDF splitter & rotator.",
+    ],
+  },
+  {
+    icon: ShieldCheck,
+    title: "Secure & Privacy-First Processing",
+    color: "border-l-green-500",
+    bullets: [
+      "All tools run directly in your browser — your files and data never leave your device.",
+      "No accounts, no sign-ups, no tracking. We don't store or upload anything.",
+      "Built with modern web technologies for maximum security without server-side risks.",
+    ],
+    callout:
+      "WinoxTools is designed with a privacy-first philosophy. Every calculation, conversion, and generation happens client-side, so your sensitive data stays yours.",
+  },
+  {
+    icon: Monitor,
+    title: "Cross-Platform Compatibility",
+    color: "border-l-purple-500",
+    bullets: [
+      "Fully responsive design — works seamlessly on desktop, tablet, and mobile.",
+      "Light and dark mode built in for comfortable use anytime.",
+      "No downloads or installs required — just open your browser and start working.",
+    ],
+  },
+  {
+    icon: Zap,
+    title: "Fast Workflow & Simplicity",
+    color: "border-l-amber-500",
+    bullets: [
+      "Every tool opens instantly with a clean, distraction-free interface.",
+      "One-click access from the homepage — search, browse categories, or jump straight to a tool.",
+      "New tools are added regularly based on community feedback and emerging needs.",
+    ],
+  },
+];
+
 const SEOSection = () => {
   return (
     <section className="px-4 py-16 bg-muted/30">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 text-center">
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-center">
           Free Online Winox Tools – Your All-in-One Solution!
         </h2>
+        <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12 leading-relaxed">
+          Welcome to WinoxTools — your ultimate destination for free, fast, and powerful online tools designed for developers, students, business professionals, and content creators.
+        </p>
 
-        <div className="prose prose-sm sm:prose-base max-w-none text-muted-foreground leading-relaxed space-y-5">
-          <p>
-            Welcome to <strong className="text-foreground">WinoxTools</strong> — your ultimate destination for free,
-            fast, and powerful online tools designed for developers, students, business professionals, content creators,
-            and anyone who wants to get things done without friction. Whether you need to format JSON, calculate your GPA,
-            generate AI prompts, or convert PDFs, WinoxTools has you covered — all from your browser, with zero installs
-            and zero sign-ups.
-          </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {sections.map((s) => {
+            const Icon = s.icon;
+            return (
+              <div
+                key={s.title}
+                className={`bg-card rounded-xl border border-border shadow-sm p-6 border-l-4 ${s.color} transition-shadow hover:shadow-md`}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-foreground" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground">{s.title}</h3>
+                </div>
 
-          <p>
-            Our platform is organized into five core categories so you can quickly find exactly what you need.
-            <strong className="text-foreground"> Developer Tools</strong> include JSON formatters, Base64 encoders,
-            UUID generators, regex testers, timestamp converters, and hash generators — everything a developer needs
-            for daily coding tasks. <strong className="text-foreground">Student Tools</strong> offer GPA calculators,
-            final grade calculators, percentage calculators, and a built-in Pomodoro timer to boost your study sessions.
-          </p>
+                <ul className="space-y-2.5 mb-4">
+                  {s.bullets.map((b, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground leading-relaxed">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
 
-          <p>
-            For professionals, our <strong className="text-foreground">Business Tools</strong> provide invoice generators,
-            profit margin calculators, VAT calculators, and ROI calculators — perfect for freelancers, small business
-            owners, and financial analysts. <strong className="text-foreground">Prompt Tools</strong> are designed for
-            the AI era: generate, improve, and build optimized prompts for ChatGPT, Midjourney, and YouTube scripts
-            effortlessly.
-          </p>
-
-          <p>
-            Need to work with documents? Our <strong className="text-foreground">PDF Tools</strong> let you convert
-            images to PDF, extract images from PDFs, rotate pages, and split documents — all processed locally in your
-            browser for maximum privacy.
-          </p>
-
-          <p>
-            Unlike many online tool platforms, WinoxTools is built with a <strong className="text-foreground">privacy-first
-            approach</strong>. Your files and data never leave your device. We don't store, upload, or share anything.
-            Every tool runs directly in your browser using modern web technologies, which means blazing-fast performance
-            without the security risks of server-side processing.
-          </p>
-
-          <p>
-            WinoxTools is completely free — no premium plans, no credit card requirements, no trial periods. We believe
-            essential productivity tools should be accessible to everyone, everywhere. Our clean, modern interface works
-            seamlessly on desktops, tablets, and mobile devices, with full dark mode support for comfortable use day
-            and night.
-          </p>
-
-          <p>
-            We're constantly expanding our toolkit. New tools are added regularly based on community feedback and emerging
-            needs. Whether you're a seasoned developer debugging an API response, a student preparing for finals, a
-            business owner generating invoices, or a content creator crafting the perfect AI prompt — WinoxTools is your
-            trusted companion for getting things done faster.
-          </p>
-
-          <p>
-            Start exploring our tools today — no registration, no downloads, no hassle. Just open, use, and get results.
-          </p>
+                {s.callout && (
+                  <div className="flex gap-3 p-4 rounded-lg bg-primary/10 border border-primary/20">
+                    <Info className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <p className="text-sm text-foreground leading-relaxed">{s.callout}</p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
+
+        <p className="text-muted-foreground text-sm text-center mt-10 max-w-2xl mx-auto leading-relaxed">
+          Unlike many online tool platforms, WinoxTools is completely free — no premium plans, no credit card requirements, no trial periods. We believe essential productivity tools should be accessible to everyone, everywhere. Start exploring today — no registration, no downloads, no hassle.
+        </p>
       </div>
     </section>
   );
