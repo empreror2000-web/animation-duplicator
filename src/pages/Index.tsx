@@ -25,7 +25,7 @@ const Index = () => {
       <FAQSection />
       <BlogSection />
       <DonationSection />
-      <SocialSection />
+      
       <Footer />
       <ScrollToTop />
     </div>

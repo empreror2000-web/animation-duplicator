@@ -13,6 +13,10 @@ import ToolsPage from "./pages/ToolsPage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import NotFound from "./pages/NotFound";
+import TermsPage from "./pages/TermsPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import MoreScriptsPage from "./pages/MoreScriptsPage";
+import SitemapPage from "./pages/SitemapPage";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +31,10 @@ const App = () => (
           <Route path="/donation" element={<Donation />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/more-scripts" element={<MoreScriptsPage />} />
+          <Route path="/sitemap" element={<SitemapPage />} />
           {/* New /tools routes */}
           <Route path="/tools/:category" element={<ToolsCategory />} />
           <Route path="/tools/:category/:slug" element={<ToolsPage />} />
