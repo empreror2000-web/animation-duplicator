@@ -1,11 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Search } from "lucide-react";
 import { tools } from "@/data/tools";
 
+const rotatingWords = ["Work", "Study", "Productivity"];
+
 const HeroSection = () => {
   const [query, setQuery] = useState("");
+  const [wordIndex, setWordIndex] = useState(0);
+  const [fade, setFade] = useState(true);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false);
+      setTimeout(() => {
+        setWordIndex((i) => (i + 1) % rotatingWords.length);
+        setFade(true);
+      }, 300);
+    }, 2200);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,7 +43,12 @@ const HeroSection = () => {
       <div className="max-w-3xl mx-auto text-center relative z-10">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4">
           Free Online Tools for{" "}
-          <span className="text-gradient">Work, Study & Productivity</span>
+          <span
+            className={`inline-block text-gradient transition-all duration-300 ${fade ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+            style={{ minWidth: "180px" }}
+          >
+            {rotatingWords[wordIndex]}
+          </span>
         </h1>
 
         <p className="text-muted-foreground text-lg mb-10 max-w-2xl mx-auto">
