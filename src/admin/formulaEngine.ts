@@ -53,8 +53,8 @@ function parseExpr(tokens: Token[], pos: { i: number }, vars: Vars): number {
 
 function parseTerm(tokens: Token[], pos: { i: number }, vars: Vars): number {
   let left = parseFactor(tokens, pos, vars);
-  while (pos.i < tokens.length && tokens[pos.i].type === "op" && ("*/%".includes(tokens[pos.i].value))) {
-    const op = tokens[pos.i].value; pos.i++;
+  while (pos.i < tokens.length && tokens[pos.i].type === "op" && ("*/%".includes(String(tokens[pos.i].value)))) {
+    const op = String(tokens[pos.i].value); pos.i++;
     const right = parseFactor(tokens, pos, vars);
     if (op === "*") left *= right;
     else if (op === "/") left = right !== 0 ? left / right : 0;
