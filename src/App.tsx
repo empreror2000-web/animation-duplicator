@@ -18,6 +18,13 @@ import PrivacyPage from "./pages/PrivacyPage";
 import MoreScriptsPage from "./pages/MoreScriptsPage";
 import SitemapPage from "./pages/SitemapPage";
 
+// Admin
+import AdminLayout from "./admin/AdminLayout";
+import AdminDashboard from "./admin/pages/AdminDashboard";
+import AdminToolsList from "./admin/pages/AdminToolsList";
+import AdminToolEditor from "./admin/pages/AdminToolEditor";
+import AdminCategories from "./admin/pages/AdminCategories";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -35,7 +42,14 @@ const App = () => (
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/more-scripts" element={<MoreScriptsPage />} />
           <Route path="/sitemap" element={<SitemapPage />} />
-          {/* New /tools routes */}
+          {/* Admin routes */}
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="tools" element={<AdminToolsList />} />
+            <Route path="tools/:id" element={<AdminToolEditor />} />
+            <Route path="categories" element={<AdminCategories />} />
+          </Route>
+          {/* Tool routes */}
           <Route path="/tools/:category" element={<ToolsCategory />} />
           <Route path="/tools/:category/:slug" element={<ToolsPage />} />
           {/* Legacy category routes */}

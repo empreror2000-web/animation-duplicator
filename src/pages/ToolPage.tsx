@@ -5,10 +5,20 @@ import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { tools } from "@/data/tools";
+import { getToolBySlug } from "@/admin/store";
+import DynamicToolRenderer from "@/components/DynamicToolRenderer";
 
 const ToolPage = () => {
   const { tool: toolSlug } = useParams<{ category: string; tool: string }>();
   const navigate = useNavigate();
+
+  // Check admin-created tools first
+  if (toolSlug) {
+    const adminTool = getToolBySlug(toolSlug);
+    if (adminTool && adminTool.status === "published" && adminTool.enabled) {
+      return <DynamicToolRenderer tool={adminTool} />;
+    }
+  }
 
   const tool = tools.find((t) => t.slug === toolSlug);
 
@@ -36,7 +46,6 @@ const ToolPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-
       <div className="max-w-2xl mx-auto px-4 py-12 text-center">
         <button
           onClick={() => navigate(-1)}
@@ -45,10 +54,8 @@ const ToolPage = () => {
           <ArrowLeft className="w-4 h-4" />
           Back
         </button>
-
         <h1 className="text-3xl font-bold text-foreground mb-2">{tool.name}</h1>
         <p className="text-muted-foreground mb-10">{tool.description}</p>
-
         <div
           className="border-2 border-dashed border-border rounded-2xl p-12 hover:border-primary/50 transition-colors cursor-pointer mb-6"
           onClick={handleUpload}
@@ -57,13 +64,11 @@ const ToolPage = () => {
           <p className="text-foreground font-medium mb-1">Click to upload or drag & drop</p>
           <p className="text-sm text-muted-foreground">Supports all common file formats</p>
         </div>
-
         <Button size="lg" className="rounded-xl px-8" onClick={handleUpload}>
           <Upload className="w-4 h-4 mr-2" />
           Upload File
         </Button>
       </div>
-
       <Footer />
     </div>
   );
