@@ -47,8 +47,9 @@ const CategoryPage = ({ category }: CategoryPageProps) => {
 
       <section className={`${bgMap[category]} text-primary-foreground py-12 px-4`}>
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-2">{cat.label}</h1>
-          <p className="text-lg opacity-90">{cat.description} — {catTools.length} tools available</p>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-2">{catName}</h1>
+          <p className="text-lg opacity-90">{catDescription}</p>
+          <p className="text-sm opacity-75 mt-1">{catTools.length} tools available</p>
         </div>
       </section>
 
