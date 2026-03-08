@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { categories, getToolsByCategory, type ToolCategory } from "@/data/tools";
 import { getToolIcon } from "@/lib/iconMap";
-
+import { getCategories } from "@/admin/store";
 const bgMap: Record<ToolCategory, string> = {
   dev: "bg-cat-dev",
   student: "bg-cat-student",
