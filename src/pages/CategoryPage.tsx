@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { categories, getToolsByCategory, type ToolCategory } from "@/data/tools";
 import { getToolIcon } from "@/lib/iconMap";
-
+import { getCategories } from "@/admin/store";
 const bgMap: Record<ToolCategory, string> = {
   dev: "bg-cat-dev",
   student: "bg-cat-student",
@@ -35,7 +35,10 @@ interface CategoryPageProps {
 
 const CategoryPage = ({ category }: CategoryPageProps) => {
   const navigate = useNavigate();
-  const cat = categories[category];
+  const staticCat = categories[category];
+  const adminCat = getCategories().find((c) => c.id === category || c.slug === category);
+  const catName = adminCat?.name || staticCat.label;
+  const catDescription = adminCat?.description || staticCat.description;
   const catTools = getToolsByCategory(category);
 
   return (
@@ -44,8 +47,9 @@ const CategoryPage = ({ category }: CategoryPageProps) => {
 
       <section className={`${bgMap[category]} text-primary-foreground py-12 px-4`}>
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-2">{cat.label}</h1>
-          <p className="text-lg opacity-90">{cat.description} — {catTools.length} tools available</p>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-2">{catName}</h1>
+          <p className="text-lg opacity-90">{catDescription}</p>
+          <p className="text-sm opacity-75 mt-1">{catTools.length} tools available</p>
         </div>
       </section>
 
