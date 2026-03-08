@@ -35,7 +35,10 @@ interface CategoryPageProps {
 
 const CategoryPage = ({ category }: CategoryPageProps) => {
   const navigate = useNavigate();
-  const cat = categories[category];
+  const staticCat = categories[category];
+  const adminCat = getCategories().find((c) => c.id === category || c.slug === category);
+  const catName = adminCat?.name || staticCat.label;
+  const catDescription = adminCat?.description || staticCat.description;
   const catTools = getToolsByCategory(category);
 
   return (
